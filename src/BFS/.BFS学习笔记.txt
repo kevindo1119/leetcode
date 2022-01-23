@@ -1,0 +1,130 @@
+//template
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        
+        if (root == null) {
+            return res;
+        }
+        
+        // 1. 创建一个队列，把起始节点都放进去
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        
+        // 2. while 队列不空，处理队列中的节点，并拓展出新的节点
+        while (!queue.isEmpty()) {
+            // for 上一层的节点拓展下一层的节点
+            // queue.size() 写在for loop 里面的问题是， queue.size是改变的，不能完成层拓展，但是也没有问题。
+            List<Integer> level = new ArrayList<>();
+            int size = queue.size();
+            for (int i = 0; i < size; ++i) {
+                TreeNode node = queue.poll();
+                level.add(node.val);
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right  != null) {
+                    queue.offer(node.right);
+                }
+            }
+            res.add(level);
+        }
+        
+        return res;
+    }
+}
+1. 用stack(DFS 标配)代替queue(BFS 标配)行不行？
+    也不是不行，就是相当于颠倒操作，走蛇字形状， 不是标准配置
+2. 是否需要实现分层？
+    需要分层的话多一层for， line29 只需要保留:
+            while (!queue.isEmpty()) {
+                TreeNode node = queue.poll();
+                level.add(node.val);
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right  != null) {
+                    queue.offer(node.right);
+                }
+            }
+3. size = queue.size()
+    如果直接 for（int i=0; i < queue.size(); i ++） 会怎么样？
+    queue.size() 写在for loop 里面的问题是， queue.size是改变的，不能完成层拓展，但是也没有问题。
+    
+Related Problems:
+https://leetcode.com/problems/binary-tree-level-order-traversal/ 102. Binary Tree Level Order Traversal
+https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/ 103. Binary Tree Zigzag Level Order Traversal
+https://leetcode.com/problems/binary-tree-level-order-traversal-ii/ 107. Binary Tree Level Order Traversal II
+https://leetcode.com/problems/clone-graph/ 133. Clone Graph
+https://leetcode.com/problems/serialize-and-deserialize-binary-tree/ 297. Serialize and Deserialize Binary Tree
+
+图上的宽度优先搜索 BFS in Graph
+图中存在环， 存在意味着，同一个节点可能重复进入队列
+开一个HashMap（有key value） / HashSet （只有key） 
+
+最典型的BFS问题  -- 隐式图（Implicit Graph） 最短路径
+Related Problems:
+https://leetcode.com/problems/word-ladder/ 127. Word Ladder
+https://leetcode.com/problems/number-of-islands/ 200. Number of Islands
+https://leetcode.com/problems/minimum-knight-moves/ 1197. Minimum Knight Moves
+
+Topological Sorting
+偏序 partial order A ---> B
+                     |
+                     ---> C     ABC  && ACB all valid
+
+有向无环图 directed acyclic graph (DAG)
+1. 统计每个点的入度
+2. 将每个入度为0 的点放入队列（QUEUE） 中作为起始点
+3. 不断从队列中拿出一个点，去掉这个点的所有连边（指向其他点的边）， 其他点的相应入度-1
+4. 一旦发现新的入度为0的点，丢回队列中
+
+一个图可能存在多个拓扑排序，也可能不存在任何拓扑排序
+Related Problems:
+https://www.lintcode.com/problem/127/ 127 · 拓扑排序
+不用考虑visited set，因为indegree == 0的node注定不会二度访问
+注意一定要0初始化所有的node，不然没办法形成0度的root
+初始化deque的时候，如果root已经是list object，则为deque(root), 否则 deque([root])
+
+能够用BFS解决的不要用DFS， recursion实现的DFS可能造成stackoverflow， Iteration的DFS你不会写，面试官也看不懂
+
+拓扑排序的四种写法：
+求任意的拓扑排序（topological order） --- BFS
+是否存在拓扑排序（是否可以被拓扑排序） --- BFS
+求所有的拓扑排序 --- DFS 需要backtrack还原queue 的indegree
+求是否存在且只存在一个拓扑排序 Queue的size永远是1  A -> B -> C -> D
+
+
+题目：
+https://leetcode.com/problems/course-schedule/ 207. Course Schedule
+https://leetcode.com/problems/course-schedule-ii/ 210. Course Schedule II
+https://leetcode.com/problems/course-schedule-iii/ 630. Course Schedule III（这个不是）
+
+https://leetcode.com/problems/alien-dictionary/ 269. Alien Dictionary implicit graph + topological sorting
+
+
+额外习题：
+图上：
+https://leetcode.com/problems/graph-valid-tree/ 261. Graph Valid Tree
+http://buttercola.blogspot.com/2019/04/lintcode-618-search-graph-nodes.html
+https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/ 323. Number of Connected Components in an Undirected Graph
+https://leetcode.com/problems/sequence-reconstruction/ 444. Sequence Reconstruction
+矩阵：
+Lintcode 598. Zombie in Matrix  https://www.codeleading.com/article/30671632609/
+https://github.com/freezaku/LeetCode/blob/master/Build%20Post%20Office%20II.java
+
+
+
+另外两种BFS的实现方式？
+bidirectional BFS？
+
+
