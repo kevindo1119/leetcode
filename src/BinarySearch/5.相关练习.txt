@@ -1,0 +1,5 @@
+相关练习
+https://leetcode.com/problems/search-a-2d-matrix/ 74. Search a 2D Matrix
+https://leetcode.com/problems/search-a-2d-matrix-ii/ 240. Search a 2D Matrix II 不是二分法，但是常考题
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ 34. Find First and Last Position of Element in Sorted Array
+https://leetcode.com/problems/smallest-rectangle-enclosing-black-pixels/ 302. Smallest Rectangle Enclosing Black Pixels

@@ -1,0 +1,16 @@
+一般会给你一个数组
+让你找出数组中的第一个/最后一个满足某个条件的位置
+
+Related Problems：
+https://leetcode.com/problems/peak-index-in-a-mountain-array/ 852. Peak Index in a Mountain Array
+圈：+1， 叉： -1.
+
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/ 153. Find Minimum in Rotated Sorted Array
+二分之后，左边的每一个都比右边的大（比最后一个数大） OR 整个就没有旋转
+圈： >  a[n-1] 叉： <= a[n-1]
+Follow-Up: 如果有重复的数？
+    无法保证在log(n) 的时间复杂度内解决问题 [1,1,1,1,1,1,1,0,1,1,1,1,1,1,...] 里面藏着一个0，
+    最坏的情况需要把每个位置上的1都看一遍，才能找到最后一个有0的位置
+
+https://leetcode.com/problems/search-in-rotated-sorted-array/ 33. Search in Rotated Sorted Array
+https://leetcode.com/problems/find-peak-element/ 162. Find Peak Element

@@ -1,0 +1,63 @@
+二分法模板
+public class Solution {
+    int binarySearch(int[] nums, int target) {
+        // corner case 处理
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+
+        int start = 0, end = nums.length - 1;
+
+        // 要点1: start + 1 < end
+        // nums = [1, 1], target = 1 用start < end 会死循环
+        // 什么时候结束while？ start + 1 = end OR start = end
+        // 这个while只是帮助缩小范围，保证答案在[start, end]
+        while (start + 1 < end) {
+            // 要点2：start + (end - start) / 2
+            // 巧妙的防止内存爆掉 start = 2^30, end=2^31-1
+            int mid = start + (end - start) / 2;
+            // 要点3：=, <, > 分开讨论，mid 不 +1 也不 -1
+            if (nums[mid] == target) {
+                // 第一次出现target
+                end = mid;
+                // 最后一次出现target
+                start = mid;
+            } else if (nums[mid] < target) {
+                start = mid;
+            } else {
+                end = mid;
+            }
+        }
+
+        // 要点4: 循环结束后，单独处理start和end
+        // 第一次出现target
+        if (nums[start] == target) {
+            return start;
+        }
+        if (nums[end] == target) {
+            return end;
+        }
+
+        // 要点4: 循环结束后，单独处理start和end
+        // 最后一次出现target
+        if (nums[end] == target) {
+            return end;
+        }
+        if (nums[start] == target) {
+            return start;
+        }
+
+
+        return -1;
+    }
+}
+
+Related Problems:
+https://leetcode.com/problems/binary-search/ 704. Binary Search
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ 34. Find First and Last Position of Element in Sorted Array
+
+倍增法Exponential Backoff
+https://wentao-shao.gitbook.io/leetcode/binary-search/search-in-a-big-sorted-array
+场景？ 求幂 动态数组(ArrayList in Java, vector in C++) 网络重试
+
+https://leetcode.com/problems/find-k-closest-elements/ 658. Find K Closest Elements

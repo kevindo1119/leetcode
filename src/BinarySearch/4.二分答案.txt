@@ -1,0 +1,5 @@
+二分答案
+Binary Search on Answer Range
+    最大 最小 cost 大部分用DP， 小部分用贪心， 剩下的用二分答案
+https://leetcode.com/discuss/interview-question/354854/facebook-phone-screen-cut-wood
+https://www.jiuzhang.com/solutions/wood-cut/
