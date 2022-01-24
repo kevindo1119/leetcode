@@ -12,7 +12,7 @@ public class Solution {
         Map<Character, Set<Character>> graph = new HashMap<>();
 
         // create Node
-        for (int i = 0; i< words.length; i++) {
+        for (int i = 0; i < words.length; i++) {
             for (int j = 0; j < words[i].length(); j++) {
                 Character c = words[i].charAt(j);
                 if (!graph.containsKey(c)) {
@@ -24,9 +24,9 @@ public class Solution {
         // create edges
         for (int i = 0; i < words.length - 1; i++) {
             int index = 0;
-            while (index < words[i].length() && index < words[i+1].length()) {
-                if (words[i].charAt(index) != words[i+1].charAt(index)) {
-                    graph.get(words[i].charAt(index)).add(words[i+1].charAt(index));
+            while (index < words[i].length() && index < words[i + 1].length()) {
+                if (words[i].charAt(index) != words[i + 1].charAt(index)) {
+                    graph.get(words[i].charAt(index)).add(words[i + 1].charAt(index));
                     break;
                 }
             }

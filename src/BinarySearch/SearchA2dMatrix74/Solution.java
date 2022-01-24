@@ -23,11 +23,11 @@ public class Solution {
      */
     public boolean searchMatrix(int[][] matrix, int target) {
         // write your code here
-        if(matrix == null || matrix.length == 0){
+        if (matrix == null || matrix.length == 0) {
             return false;
         }
 
-        if(matrix[0] == null || matrix[0].length == 0){
+        if (matrix[0] == null || matrix[0].length == 0) {
             return false;
         }
 
@@ -35,14 +35,14 @@ public class Solution {
         int column = matrix[0].length;
 
         int start = 0, end = row * column - 1;
-        while(start <= end){
+        while (start <= end) {
             int mid = start + (end - start) / 2;
             int number = matrix[mid / column][mid % column];
-            if(number == target){
+            if (number == target) {
                 return true;
-            }else if(number > target){
+            } else if (number > target) {
                 end = mid - 1;
-            }else{
+            } else {
                 start = mid + 1;
             }
         }

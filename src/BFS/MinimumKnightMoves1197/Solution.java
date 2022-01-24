@@ -12,7 +12,7 @@ public class Solution {
         int[] cordY = {-2, -1, 1, 2, 2, 1, -1, -2};
 
         Queue<Coordinate> queue = new LinkedList<>();
-        queue.offer(new Coordinate(0,0));
+        queue.offer(new Coordinate(0, 0));
         int step = 0;
 
         while (!queue.isEmpty()) {
@@ -54,6 +54,6 @@ public class Solution {
     Explanation: [0, 0] → [2, 1] → [4, 2] → [3, 4] → [5, 5]*/
     public static void main(String[] args) {
 
-        System.out.println(minKnightMoves(5,5));
+        System.out.println(minKnightMoves(5, 5));
     }
 }

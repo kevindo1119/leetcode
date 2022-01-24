@@ -13,16 +13,6 @@ import java.util.*;
  */
 public class Solution {
 
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
 
@@ -101,6 +91,16 @@ public class Solution {
         }
 
         return binaryTreeSeen.get(0);
+    }
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 }
 

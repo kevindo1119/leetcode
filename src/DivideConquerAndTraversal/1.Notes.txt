@@ -1,0 +1,40 @@
+二叉树问题的考点解析
+1. 求值，求考察路径的二叉树问题
+2. 结构变化类二叉树问题
+3. 二叉查找树（Binary Search Tree）类的问题
+    非递归(Non-Recursion or Iteration) 版本的中序遍历(Inorder Traversal)
+
+什么是遍历(Traverse)
+什么是分治(Divide Conquer)
+递归的三要素始什么
+递归(Recursion) 搜索(Search) 遍历(Traverse) 分治(Divide Conquer) 之间的练习和区别
+什么是先序遍历 (Pre-Order), 中序遍历 (In-Order), 后序遍历 (Post-Order)
+什么是结果类ResultType, 什么时候使用ResultType
+什么是二叉查找树(Binary Search Tree), 有什么特性， 有什么作用？
+
+二叉树的高度是多少？
+最坏 O(n)
+最好 O(logn) 平衡二叉树 ，左边都小于右边
+精确的表示 O(h)
+
+二叉树考点解析
+1. 二叉树求值求路径
+https://leetcode.com/problems/maximum-average-subtree/ 1120. Maximum Average Subtree
+考点本质： 深度优先搜索(DFS)
+2. 结构变化类二叉树问题
+https://leetcode.com/problems/invert-binary-tree/ 226. Invert Binary Tree
+考点本质： 深度优先搜索(DFS)
+3. Binary Search Tree
+https://leetcode.com/problems/validate-binary-search-tree/ 98. Validate Binary Search Tree
+考点本质： 深度优先搜索(DFS)
+
+Tree-based Depth First Search 看BinaryTreeTraversal packadge
+碰到二叉树问题，想想整棵树在该问题上的结果 和 左右儿子在该问题上的结果之间的联系是什么
+Related Problems:
+https://www.jiuzhang.com/problem/minimum-subtree/ Minimum Subtree
+https://leetcode.com/problems/binary-tree-paths/ 257. Binary Tree Paths
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/ 236. Lowest Common Ancestor of a Binary Tree
+No parent pointer & with parent pointer
+Follow-Up: LCA II && LCA III
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-ii/ 1644. Lowest Common Ancestor of a Binary Tree II
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/ 1650. Lowest Common Ancestor of a Binary Tree III

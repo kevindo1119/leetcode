@@ -12,28 +12,7 @@ package DivideConquerAndTraversal.MinimumSubtree;
  * }
  */
 // version 2 : pure divide conquer
-public class SolutionPureDivideConquer {
-    class TreeNode {
-        public int val;
-        public TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-            this.left = this.right = null;
-        }
-    }
-
-    class ResultType {
-        public int sum, minSum;
-        public TreeNode minSubtree;
-
-        public ResultType(TreeNode minSubtree, int sum, int minSum) {
-            this.minSubtree = minSubtree;
-            this.minSum = minSum;
-            this.sum = sum;
-        }
-    }
-
+public class SolutionDivideConquer {
     /**
      * @param root: the root of binary tree
      * @return: the root of the minimum subtree
@@ -70,5 +49,26 @@ public class SolutionPureDivideConquer {
             result.minSum = rightResult.minSum;
         }
         return result;
+    }
+
+    class TreeNode {
+        public int val;
+        public TreeNode left, right;
+
+        public TreeNode(int val) {
+            this.val = val;
+            this.left = this.right = null;
+        }
+    }
+
+    class ResultType {
+        public int sum, minSum;
+        public TreeNode minSubtree;
+
+        public ResultType(TreeNode minSubtree, int sum, int minSum) {
+            this.minSubtree = minSubtree;
+            this.minSum = minSum;
+            this.sum = sum;
+        }
     }
 }

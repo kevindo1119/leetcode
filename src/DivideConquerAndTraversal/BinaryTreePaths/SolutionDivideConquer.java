@@ -4,16 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 // version 1: Divide Conquer
-public class Solution {
-     class TreeNode {
-        public int val;
-        public TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-            this.left = this.right = null;
-        }
-    }
+public class SolutionDivideConquer {
     /**
      * @param root: the root of the binary tree
      * @return all root-to-leaf paths
@@ -40,5 +31,15 @@ public class Solution {
         }
 
         return paths;
+    }
+
+    class TreeNode {
+        public int val;
+        public TreeNode left, right;
+
+        public TreeNode(int val) {
+            this.val = val;
+            this.left = this.right = null;
+        }
     }
 }

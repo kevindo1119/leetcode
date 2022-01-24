@@ -12,16 +12,7 @@ package DivideConquerAndTraversal.MinimumSubtree;
  * }
  */
 // version 1 : traverse + divide conquer
-public class Solution {
-    public class TreeNode {
-        public int val;
-        public TreeNode left, right;
-
-        public TreeNode(int val) {
-            this.val = val;
-            this.left = this.right = null;
-        }
-    }
+public class SolutionTraverse {
     private int minSum;
     private TreeNode minRoot;
 
@@ -48,5 +39,15 @@ public class Solution {
         }
 
         return sum;
+    }
+
+    class TreeNode {
+        public int val;
+        public TreeNode left, right;
+
+        public TreeNode(int val) {
+            this.val = val;
+            this.left = this.right = null;
+        }
     }
 }

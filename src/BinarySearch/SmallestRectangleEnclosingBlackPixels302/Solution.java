@@ -3,7 +3,7 @@ package BinarySearch.SmallestRectangleEnclosingBlackPixels302;
 public class Solution {
     /**
      * @param image a binary matrix with '0' and '1'
-     * @param x, y the location of one of the black pixels
+     * @param x,    y the location of one of the black pixels
      * @return an integer
      */
     public int minArea(char[][] image, int x, int y) {

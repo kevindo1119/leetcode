@@ -1,4 +1,4 @@
-package DivideConquerAndTraversal.LowestCommonAncestorOfABinaryTree;
+package DivideConquerAndTraversal.LowestCommonAncestorOfABinaryTreeII;
 
 import java.util.ArrayList;
 
@@ -10,13 +10,6 @@ import java.util.ArrayList;
  * }
  */
 public class Solution {
-    class ParentTreeNode {
-        public ParentTreeNode parent, left, right;
-    }
-    // 方法1. 有 parent 指针的时候，两个分别向上走，把parent都记下来。做成了两个array， 这两个array从后向前看，找到不同的，最后一次在一起的就是答案
-    // [A a b c d] [B h g f e c d]
-    // 方法2. 先算出两个的层数，让层数低的先走到同一高度，再同时走，直到same parent
-
     /**
      * @param root: The root of the tree
      * @param A,    B: Two node in the tree
@@ -43,6 +36,9 @@ public class Solution {
 
         return lowestAncestor;
     }
+    // 方法1. 有 parent 指针的时候，两个分别向上走，把parent都记下来。做成了两个array， 这两个array从后向前看，找到不同的，最后一次在一起的就是答案
+    // [A a b c d] [B h g f e c d]
+    // 方法2. 先算出两个的层数，让层数低的先走到同一高度，再同时走，直到same parent
 
     private ArrayList<ParentTreeNode> getPath2Root(ParentTreeNode node) {
         ArrayList<ParentTreeNode> path = new ArrayList<>();
@@ -51,5 +47,9 @@ public class Solution {
             node = node.parent;
         }
         return path;
+    }
+
+    class ParentTreeNode {
+        public ParentTreeNode parent, left, right;
     }
 }

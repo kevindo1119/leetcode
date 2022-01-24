@@ -34,18 +34,6 @@ import java.util.*;
  */
 
 public class Solution {
-    class DirectedGraphNode {
-        int label;
-        ArrayList<DirectedGraphNode> neighbors;
-
-        DirectedGraphNode(int x) {
-            label = x;
-            neighbors = new ArrayList<DirectedGraphNode>();
-        }
-    }
-
-    ;
-
     /*
      * @param graph: A list of Directed graph node
      * @return: Any topological order for the given graph.
@@ -83,5 +71,17 @@ public class Solution {
         }
 
         return order;
+    }
+
+    ;
+
+    class DirectedGraphNode {
+        int label;
+        ArrayList<DirectedGraphNode> neighbors;
+
+        DirectedGraphNode(int x) {
+            label = x;
+            neighbors = new ArrayList<DirectedGraphNode>();
+        }
     }
 }

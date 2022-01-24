@@ -2,47 +2,45 @@ package BinarySearch.FindFirstAndLastPositionOfElementInSortedArray34;
 
 public class Solution {
     /**
-     * @param A: an integer sorted array
+     * @param A:      an integer sorted array
      * @param target: an integer to be inserted
      * @return: a list of length 2, [index1, index2]
      */
     // 寻找左端点
-    static int findFirstTargetNum(int[] A, int target, int n){
+    static int findFirstTargetNum(int[] A, int target, int n) {
         int left = 0, right = n - 1;
-        while (left + 1 < right){
+        while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (A[mid] < target){
+            if (A[mid] < target) {
                 left = mid;
-            }
-            else{
+            } else {
                 right = mid;
             }
         }
-        if (left < n && A[left] == target){
+        if (left < n && A[left] == target) {
             return left;
         }
-        if (right >= 0 && A[right] == target){
+        if (right >= 0 && A[right] == target) {
             return right;
         }
         return -1;
     }
 
     // 寻找右端点
-    static int findLastTargetNum(int[] A, int target, int n){
+    static int findLastTargetNum(int[] A, int target, int n) {
         int left = 0, right = n - 1;
-        while (left + 1 < right){
+        while (left + 1 < right) {
             int mid = left + (right - left) / 2;
-            if (A[mid] <= target){
+            if (A[mid] <= target) {
                 left = mid;
-            }
-            else{
+            } else {
                 right = mid;
             }
         }
-        if (right >= 0 && A[right] == target){
+        if (right >= 0 && A[right] == target) {
             return right;
         }
-        if (left < n && A[left] == target){
+        if (left < n && A[left] == target) {
             return left;
         }
         return -1;
